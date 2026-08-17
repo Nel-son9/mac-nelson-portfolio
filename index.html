@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mac-Nelson | Tech & Aviation Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #071a33;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            background: linear-gradient(
+                rgba(7, 26, 51, 0.9),
+                rgba(7, 26, 51, 0.9)
+            ),
+            url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            color: #071a33;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #071a33;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.about-image {
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+        /* SKILLS */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .skill-card h3 {
+            color: #071a33;
+            margin-bottom: 15px;
+        }
+
+        .skill-card ul {
+            padding-left: 20px;
+        }
+
+        /* EXPERIENCE */
+        .experience-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 30px;
+            border-left: 5px solid #d4af37;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .experience-card h3 {
+            color: #071a33;
+            margin-bottom: 5px;
+        }
+
+        .experience-card .date {
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-card h3 {
+            color: #071a33;
+            margin-bottom: 10px;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #071a33;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* AVIATION */
+        .aviation {
+            background: #071a33;
+            color: white;
+        }
+
+        .aviation .section-title h2 {
+            color: white;
+        }
+
+        .aviation .section-title p {
+            color: #ddd;
+        }
+
+        .aviation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .aviation-card {
+            border: 1px solid #ffffff30;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .aviation-card h3 {
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        /* EDUCATION */
+        .education {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .education-card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+        }
+
+        .contact-info p {
+            margin: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #041020;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .about,
+            .experience-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container,
+            .projects,
+            .aviation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <div class="logo">MAC-NELSON</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Hello, I'm <span>Ekwegh Mac-Nelson</span></h1>
+
+        <h2>Technology Professional | Aviation Safety Officer</h2>
+
+        <p>
+            Computer Science graduate with an interest in technology,
+            data analysis, project management, aviation operations and
+            safety management. Have basic knowledge of HTML, CSS, JavaScript and little Python programming skills.
+        </p>
+
+        <a href="#about" class="btn">Explore My Portfolio</a>
+
+        <a href="#contact" class="btn">Contact Me</a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="section-title">
+        <h2>About Me</h2>
+        <p>Technology, aviation and continuous learning.</p>
+    </div>
+
+    <div class="about">
+
+        <div class="about-image">
+            <img src="Professional Nelson.jpg" alt="Mac-Nelson Ekwegh" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+        </div>
+
+        <div class="about-text">
+
+            <h3>Who I Am</h3>
+
+            <p>
+                I am a Computer Science graduate with a strong interest
+                in technology and aviation. My professional interests
+                span software, data analysis, project management,
+                aviation safety and operational compliance.
+            </p>
+
+            <br>
+
+            <p>
+                I enjoy learning new technologies, solving problems,
+                improving processes and contributing to safer and more
+                efficient working environments.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+    <div class="section-title">
+
+        <h2>My Skills</h2>
+
+        <p>Areas I am developing professionally.</p>
+
+    </div>
+
+
+    <div class="skills-container">
+
+        <div class="skill-card">
+
+            <h3>Technology</h3>
+
+            <ul>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Data Analysis</li>
+                <li>Cloud Computing</li>
+                <li>Database Management</li>
+                <li>Microsoft Office</li>
+                <li>Canva</li>
+            </ul>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>Professional</h3>
+
+            <ul>
+                <li>Project Management</li>
+                <li>Problem Solving</li>
+                <li>Documentation</li>
+                <li>Communication</li>
+                <li>Team Collaboration</li>
+                <li>Research</li>
+            </ul>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3>Aviation & Safety</h3>
+
+            <ul>
+                <li>Safety Inspections</li>
+                <li>Hazard Identification</li>
+                <li>Incident Reporting</li>
+                <li>Risk Assessment</li>
+                <li>Emergency Response</li>
+                <li>Safety Awareness</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section id="experience">
+
+    <div class="section-title">
+
+        <h2>Professional Experience</h2>
+
+        <p>My technology and aviation experience.</p>
+
+    </div>
+
+
+    <div class="experience-container">
+
+        <!-- TECH ROLE -->
+
+        <div class="experience-card">
+
+            <h3>IT / Technology Role</h3>
+
+            <div class="date">
+                NONE FOR NOW | NIL
+            </div>
+
+            <p>
+                Supporting technology-related activities,
+                troubleshooting, documentation and digital
+                processes within the organisation.
+            </p>
+
+        </div>
+
+
+        <!-- AVIATION ROLE -->
+
+        <div class="experience-card">
+
+            <h3>Safety Officer</h3>
+
+            <div class="date">
+                QUITS AVIATION  | 2025-PRESENT
+            </div>
+
+            <p>
+                Supporting aviation safety through hazard
+                identification, incident reporting, safety
+                inspections, corrective action monitoring,
+                emergency preparedness and safety awareness.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+    <div class="section-title">
+
+        <h2>Technology Projects</h2>
+
+        <p>Selected projects and areas of interest.</p>
+
+    </div>
+
+
+    <div class="projects">
+
+        <div class="project-card">
+
+            <h3>AI Customer Support Framework</h3>
+
+            <p>
+                Development of a framework for improving
+                customer support through artificial intelligence.
+            </p>
+
+            <a href="#">Never Finished it →</a>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>Spam Detection System</h3>
+
+            <p>
+                Machine learning project using techniques such
+                as SVM, Naive Bayes and ensemble learning.
+            </p>
+
+            <a href="#">View Project →</a>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>Data Analysis</h3>
+
+            <p>
+                Data analysis projects involving data cleaning,
+                exploration, visualization and insights.
+            </p>
+
+            <a href="#">View Project →</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AVIATION ================= -->
+
+<section class="aviation">
+
+    <div class="section-title">
+
+        <h2>Aviation & Safety</h2>
+
+        <p>My key areas of responsibility.</p>
+
+    </div>
+
+
+    <div class="aviation-grid">
+
+        <div class="aviation-card">
+
+            <h3>Hazard Management</h3>
+
+            <p>
+                Identification, reporting and monitoring of
+                workplace hazards and associated corrective actions.
+            </p>
+
+        </div>
+
+
+        <div class="aviation-card">
+
+            <h3>Safety Inspections</h3>
+
+            <p>
+                Conducting scheduled safety inspections and
+                monitoring compliance with safety requirements.
+            </p>
+
+        </div>
+
+
+        <div class="aviation-card">
+
+            <h3>Incident Reporting</h3>
+
+            <p>
+                Recording and reporting incidents within the
+                required timeframe and maintaining accurate records.
+            </p>
+
+        </div>
+
+
+        <div class="aviation-card">
+
+            <h3>J-ERP</h3>
+
+            <p>
+                Supporting the Joint Emergency Response Plan,
+                stakeholder coordination, meetings and drills.
+            </p>
+
+        </div>
+
+
+        <div class="aviation-card">
+
+            <h3>Safety Awareness</h3>
+
+            <p>
+                Conducting toolbox talks, safety bulletins,
+                awareness videos and safety briefings.
+            </p>
+
+        </div>
+
+
+        <div class="aviation-card">
+
+            <h3>Audit & Compliance</h3>
+
+            <p>
+                Working with Quality teams to identify areas
+                requiring corrective action and improvement.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Education</h2>
+
+    </div>
+
+
+    <div class="education">
+
+        <div class="education-card">
+
+            <h3>BSc Computer Science</h3>
+
+            <p>
+                <strong>Second Class Upper</strong>
+            </p>
+
+            <p>
+                Caleb University
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="section-title">
+
+        <h2>Let's Connect</h2>
+
+        <p>
+            Interested in working together or learning more about me?
+        </p>
+
+    </div>
+
+
+    <div class="contact">
+
+        <div class="contact-info">
+
+
+            <p>📧 Email: macnelsonekwegh9@gmail.com</p>
+
+            <p>📱 Phone: +234 915 504 7600</p>
+
+            <p>📍 Location: Lagos, Nigeria</p>
+
+            <p>
+                💼 LinkedIn:
+                <a href="https://www.linkedin.com/in/mac-nelson-ekwegh-789861229" target="_blank">
+                   My LinkedIn
+                </a>
+            </p>
+
+            <p>
+                💻 GitHub:
+                <a href="#" target="_blank">
+                    My GitHub
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 Mac-Nelson. All Rights Reserved.
+    </p>
+
+    <p>
+        Technology • Aviation • Safety
+    </p>
+
+</footer>
+
+
+</body>
+</html>
